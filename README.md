@@ -39,7 +39,7 @@ import requests
 url = "http://127.0.0.1:5000/classify"
 
 payload = [{
-    "username": 'iyobosa',
+    "username": 'iyo',
     "tweet": 'Station activity person against natural majority none few size expect six marriage.'
 },
 {
