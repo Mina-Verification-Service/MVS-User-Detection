@@ -16,3 +16,45 @@ stolen.
 2. Account Activity: Account activity is also an indication if an account is operating by a bot. A bot’s automated activity is identified through abnormal user patterns, such as posting all hours of the day and night and posts occurring at the exact time daily or weekly. With Twitter, users are able to pre-set a written tweet to be sent at a certain time. An account that sends a tweet at the same time daily, maybe advertising a limited time offer, would be an example of activity similar to how a bot would behave.
 
 3. Text Mining: Text mining also gives insight on whether an account is bot controlled. Bot accounts may post the same, or very similar, messages repeatedly to evade Twitter’s spam filters, which identify repeated messages. [String similarity algorithms](https://yassineelkhal.medium.com/the-complete-guide-to-string-similarity-algorithms-1290ad07c6b7) will be used here to analyse a section of user tweets as the api limits allow.
+
+## Usage
+
+Install packages neeeded from the requirements file.
+
+```bash
+pip install -r requirements.txt
+```
+
+Run application.
+
+```bash
+python3 app.py
+```
+
+Test the application. Testing can be done with the example script provided here.
+
+```bash
+import requests
+
+url = "http://127.0.0.1:5000/classify"
+
+payload = [{
+    "username": 'iyobosa',
+    "tweet": 'Station activity person against natural majority none few size expect six marriage.'
+},
+{
+    "username": "egn",
+    "tweet": 'Machine activity stand board spring new tough walk type start believe hot no.'
+}]
+
+headers = {
+    'Content-Type': 'application/json'
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+if response.status_code == 200:
+    print(response.json())
+else:
+    print("Error:", response.status_code)
+```
