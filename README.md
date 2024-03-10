@@ -31,21 +31,20 @@ Run application.
 python3 app.py
 ```
 
-Test the application. Testing can be done with the example script provided here.
+Create a `twitter.env` file and ensure your Twitter API `BEARER_TOKEN` is inside the `twitter.env` file.
 
-```bash
+Test the application. Testing can be done with the example script provided here.
+The higher the `max_tweets` parameter, the more accurate it becomes.
+
+```python
 import requests
 
 url = "http://127.0.0.1:5000/classify"
 
-payload = [{
-    "username": 'iyo',
-    "tweet": 'Station activity person against natural majority none few size expect six marriage.'
-},
-{
-    "username": "egn",
-    "tweet": 'Machine activity stand board spring new tough walk type start believe hot no.'
-}]
+payload = {
+    "usernames": ["theiyobosa", "naira_rates"],
+    "max_tweets": 5
+}
 
 headers = {
     'Content-Type': 'application/json'

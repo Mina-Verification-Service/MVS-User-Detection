@@ -1,2 +1,6 @@
-__pycache_/
+temp_tweets.txt
+temp_tweets.txt.zip
+twitter.env
+nb.ipynb
 .DS_Store
+venv/
