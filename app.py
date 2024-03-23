@@ -8,6 +8,8 @@ def detect():
     data = request.json
     usernames = data.get('usernames')
     max_tweets = data.get('max_tweets', 5)
+
+    usernames = usernames.split(',')
     
     if usernames == None:
         return jsonify({'error': "'usernames' parameter not found."})

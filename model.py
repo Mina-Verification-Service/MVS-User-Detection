@@ -1,5 +1,5 @@
 from typing import Dict, List
-import pickle
+import joblib
 import numpy as np
 from feature_extractor import FeatureExtractor
 
@@ -38,8 +38,7 @@ class Classifier(FeatureExtractor):
         
 
     def _load_model(self) -> None:
-        with open('model/model.pkl', 'rb') as f:
-            self.model = pickle.load(f)
+        self.model = joblib.load('model/model.joblib')
 
     
     def predict(self) -> Dict:
